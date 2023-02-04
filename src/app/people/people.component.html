@@ -1,0 +1,13 @@
+<div>
+    <h1>People</h1>
+
+    <button (click)="gotToPeopleForm()">Add</button>
+
+    <li *ngFor="let person of peopleList" >
+        <a routerLink="/person/{{person.id}}">
+            <span>{{person.id}} - {{person.name}}</span>
+        </a>
+
+        <button (click)="delete(person.id)"> X </button>
+    </li>
+</div>
