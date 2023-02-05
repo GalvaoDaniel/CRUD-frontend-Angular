@@ -1,13 +1,18 @@
 <div>
-    <h1>People</h1>
+    <ul class="list-group container mt-3" style="list-style: none;">
+        <li class="bg-secondary p-2 rounded-top">
+            <h3 class="d-inline text-light">People</h3>
+            <div class="float-end">
+                <button type="button" class="btn btn-primary" (click)="gotToPeopleForm()">Add</button>
+            </div>
+        </li>
+        <li class="list-group-item" *ngFor="let person of peopleList" >
+            <span>{{person.name}}</span>
 
-    <button (click)="gotToPeopleForm()">Add</button>
-
-    <li *ngFor="let person of peopleList" >
-        <a routerLink="/person/{{person.id}}">
-            <span>{{person.id}} - {{person.name}}</span>
-        </a>
-
-        <button (click)="delete(person.id)"> X </button>
-    </li>
+            <div class="float-end">
+                <button type="button" class="btn btn-info" routerLink="/person/{{person.id}}">Edit</button>
+                <button type="button" class="btn btn-danger ms-1" (click)="delete(person.id)"> X </button>
+            </div>
+        </li>
+    </ul>
 </div>
